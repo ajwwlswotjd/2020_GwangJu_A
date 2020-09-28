@@ -5,7 +5,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; outline: none; font-family: "Calibri", sans-serif; }
 a, a:hover { text-decoration: none !important; }
 li { list-style: none; }
-body { min-height: 100vh; position: relative;}
+body { min-height: 100vh; position: relative; overflow-x: hidden;}
 .all-unset { all: unset; }
 .text-ellipsis { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .abs-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
@@ -105,12 +105,16 @@ nav > a {
 #dep2 {
     position: absolute;
     width: 100px;
-    border-top: 1px solid #007bff;
+    height: 0px;
+    overflow: hidden;
     top: 60px;
-    display: none;
+    display: flex;
     flex-direction: column;
     right: 0;
+    transition: height .5s;
 }
+
+#dep2 > a:first-child { border-top: 1px solid #007bff; }
 
 #dep2 > a {
     width: 100%;
@@ -122,7 +126,7 @@ nav > a {
 }
 
 nav:hover > #dep2,
-#dep2:hover { display: flex; }
+#dep2:hover { height: calc(27px * 5); }
 
 /* 헤더 끝 */
 
